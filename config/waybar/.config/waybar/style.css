@@ -1,0 +1,80 @@
+* {
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;
+}
+
+window#waybar {
+  border-radius: 0px;
+  border: 1px solid #00ffff;
+  background: #030f1b; /* option1 #030f1b, option2 #1B1E35 */
+}
+
+/* 
+  defect color hyprland gradient
+  linear-gradient(#1A1B26, #1A1B26) padding-box,
+  linear-gradient(45deg, #33ccff, #00ff99) border-box;
+*/
+
+.modules-left {
+  margin-left: 8px;
+}
+
+.modules-right {
+  margin-right: 8px;
+}
+
+
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+}
+
+#workspaces button.active {
+  margin: 4px 0;
+  border-bottom: 3px solid #ffffff;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+
+#tray,
+#cpu,
+#memory,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#custom-launcher,
+#custom-update,
+#custom-power {
+  min-width: 12px;
+  margin: 0 7.5px;
+}
+/* 
+#bluetooth {
+  margin-left: 15px;
+} */
+
+tooltip {
+  padding: 4px;
+}
+
+#custom-update {
+  font-size: 10px;
+}
+
+#clock {
+  margin-left: 8.75px;
+}
+
+.hidden {
+  opacity: 0;
+}

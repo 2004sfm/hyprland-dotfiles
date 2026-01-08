@@ -1,0 +1,133 @@
+* {
+    background-image: none;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 20px;
+    font-weight: 900;
+}
+
+window {
+    background-color: transparent;
+}
+
+button {
+    color: #FFFFFF;
+    background-color: #1A1B26;
+    
+    outline-style: none;
+    border: 3px solid transparent;
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    
+    border-radius: 0px;
+    box-shadow: none;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    text-shadow: none;
+    
+    transition: 
+        margin 0.3s cubic-bezier(.25,.8,.25,1),
+        all 0.3s ease;
+}
+
+button:focus, button:hover {
+    background-size: 40%;
+    border-radius: 30px;
+    outline: none;
+}
+
+button:focus#lock, button:hover#lock {
+    background-color: #6192d4;
+    border-color: #6192d4;
+}
+
+button:focus#logout, button:hover#logout {
+    background-color: #d4be89;
+    border-color: #d4be89;
+}
+
+button:focus#suspend, button:hover#suspend {
+    background-color: #79b375;
+    border-color: #79b375;
+}
+
+button:focus#shutdown, button:hover#shutdown {
+    background-color: #d96a8a;
+    border-color: #d96a8a;
+}
+
+button:focus#hibernate, button:hover#hibernate {
+    background-color: #5eaebc;
+    border-color: #5eaebc;
+}
+
+button:focus#reboot, button:hover#reboot {
+    background-color: #a981d4;
+    border-color: #a981d4;
+}
+
+button:focus#lock {
+    border-radius: 30px;
+    margin: 0px 0px 0px 10px; 
+}
+
+button:focus#logout {
+    border-radius: 30px;
+    margin: 0px 0px 0px 0px;
+}
+
+button:focus#suspend {
+    border-radius: 30px;
+    margin: 0px 0px 0px 0px;
+}
+
+button:focus#shutdown {
+    border-radius: 30px;
+    margin: 0px 0px 0px 0px;
+}
+
+button:focus#hibernate {
+    border-radius: 30px;
+    margin: 0px 0px 0px 0px;
+}
+
+button:focus#reboot {
+    border-radius: 30px;
+    margin: 0px 10px 0px 0px;
+}
+
+#lock {
+    background-image: image(url("icons/lock.png"));
+    border-radius: 30px 0px 0px 30px;
+    margin: 28px 0px 28px 14px; 
+}
+
+#logout {
+    background-image: image(url("icons/logout.png"));
+    border-radius: 0px;
+    margin: 28px 0px 28px 0px;
+}
+
+#suspend {
+    background-image: image(url("icons/suspend.png"));
+    border-radius: 0px;
+    margin: 28px 0px 28px 0px;
+}
+
+#shutdown {
+    background-image: image(url("icons/shutdown.png"));
+    border-radius: 0px;
+    margin: 28px 0px 28px 0px;
+}
+
+#hibernate {
+    background-image: image(url("icons/hibernate.png"));
+    border-radius: 0px;
+    margin: 28px 0px 28px 0px;
+}
+
+#reboot {
+    background-image: image(url("icons/reboot.png"));
+    border-radius: 0px 30px 30px 0px;
+    margin: 28px 14px 28px 0px;
+}

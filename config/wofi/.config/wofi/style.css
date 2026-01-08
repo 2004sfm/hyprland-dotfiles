@@ -1,0 +1,88 @@
+/*
+ * =============================================
+ * Wofi Configuration Guide
+ * =============================================
+ * To see all available CSS selectors (#window, #input, #entry, etc.) and theme examples:
+ * https://cloudninja.pw/docs/wofi.html
+ *
+ * To look up launch options and general parameters in the terminal:
+ * man wofi
+ */
+
+/* GTK syntax colors */
+@define-color bg_dark #030f1b; /* #2E3440, option1 #030f1b, option2 #1B1E35 */
+@define-color bg_medium #061B37; /* #3B4252, option1 #061B37, option2 #282B49 */
+@define-color text_light #ffffff;
+@define-color accent #00ffff; /* #88C0D0, #00ffff */
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 18px;
+    border-radius: 0;
+    text-shadow: none;
+    background: transparent;
+}
+
+window {
+    all: unset;
+    padding: 20px;
+    border-radius: 0px;
+    border: 1px solid @bg_medium;
+    background-color: @bg_dark;
+    
+}
+
+#outer-box {
+    margin: 5px;
+}
+
+#inner-box, 
+#scroll {
+    margin: 0px;
+    padding: 0px;
+}
+
+#input {
+    all: unset;
+    padding: 10px 0;
+    background: @bg_medium;
+}
+
+#input image {
+    padding: 0 12px;
+    /* color: @bg_medium; hide search & delete */
+}
+
+#text {
+    color: @text_light;
+}
+
+#entry {
+    border: none;
+    padding: 5px;
+}
+
+#entry arrow {
+    padding-left: 8px;
+    color: @text_light;
+}
+
+#entry:hover {
+    background-color: alpha(@bg_dark, 0.3);
+}
+
+#entry:selected {
+    background-color: @accent;
+}
+
+#entry:selected arrow {
+    color: @bg_dark;
+}
+
+#entry:selected #text {
+    color: @bg_dark;
+}
+
+#img {
+    padding: 0 8px;
+}

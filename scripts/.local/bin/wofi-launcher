@@ -1,0 +1,11 @@
+#!/bin/bash
+
+pkill -x "wofi" 
+
+exec wofi --show drun "$@"
+
+# if pgrep -x "wofi" > /dev/null; then
+#     pkill -x "wofi"
+# fi
+
+

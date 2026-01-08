@@ -1,0 +1,15 @@
+#!/bin/bash
+
+WLOGOUT_DIR="$HOME/.config/wlogout"
+
+pkill -x "wlogout"
+
+[[ "$1" != "6" ]] && \
+    exec wlogout -l "$WLOGOUT_DIR/layout_2" -C "$WLOGOUT_DIR/style_2.css" -b 2 || \
+    exec wlogout -l "$WLOGOUT_DIR/layout_6" -C "$WLOGOUT_DIR/style_6.css" -b 6
+
+# if [ "$1" == "6" ]; then
+#     exec wlogout -l "$CONF_DIR/layout_6" -C "$CONF_DIR/style_6.css" -b 6
+# else
+#     exec wlogout -l "$CONF_DIR/layout_2" -C "$CONF_DIR/style_2.css" -b 2
+# fi

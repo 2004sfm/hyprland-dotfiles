@@ -1,0 +1,95 @@
+/* @define-color bg_dark #030f1b; */
+/* @define-color bg_medium #061B37; */
+
+* {
+    background-image: none;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 20px;
+    font-weight: 900;
+    transition: all 0.2s ease-in-out;
+}
+
+window {
+    background-color: transparent;
+}
+
+button {
+    color: #fff;
+    background-color: #1A1B26;
+    border: 3px solid transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* Tamaño base para estado normal Y focus */
+    background-size: 20%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover,
+button:focus {
+    background-size: 30%;
+    /* || 40% */
+}
+
+#lock {
+    background-image: image(url("icons/lock.png"));
+    border-radius: 100px 0 0 0;
+    margin: -80px 0px 0px 140px;
+}
+
+#logout {
+    background-image: image(url("icons/logout.png"));
+    border-radius: 0 0 0 100px;
+    margin: 0px 0px -80px 140px;
+}
+
+#shutdown {
+    background-image: image(url("icons/shutdown.png"));
+    border-radius: 0 100px 0 0;
+    margin: -80px 140px 0px 0px;
+}
+
+#reboot {
+    background-image: image(url("icons/reboot.png"));
+    border-radius: 0 0 100px 0;
+    margin: 0px 140px -80px 0px;
+}
+
+button:hover#lock,
+button:focus#lock {
+    background-color: #6192d4;
+    border-color: #6192d4;
+}
+
+button:hover#logout,
+button:focus#logout {
+    background-color: #d4be89;
+    border-color: #d4be89;
+}
+
+button:hover#shutdown,
+button:focus#shutdown {
+    background-color: #d96a8a;
+    border-color: #d96a8a;
+}
+
+button:hover#reboot,
+button:focus#reboot {
+    background-color: #a981d4;
+    border-color: #a981d4;
+}
+
+button:focus#lock {
+    margin: -130px 10px 10px 110px;
+}
+
+button:focus#logout {
+    margin: 10px 10px -130px 110px;
+}
+
+button:focus#shutdown {
+    margin: -125px 110px 10px 10px;
+}
+
+button:focus#reboot {
+    margin: 10px 110px -130px 10px;
+}

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pgrep -x "zen-bin" >/dev/null || find "$HOME/.zen" -name "*lock" -delete 2>/dev/null
+
+exec /usr/bin/zen-browser "$@"

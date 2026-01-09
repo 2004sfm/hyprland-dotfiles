@@ -18,4 +18,6 @@ source /usr/share/fzf/completion.zsh
 
 eval "$(zoxide init zsh)"
 
+eval "$(fnm env --use-on-cd --shell zsh)"
+
 export ZCOMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-$HOST-$ZSH_VERSION"

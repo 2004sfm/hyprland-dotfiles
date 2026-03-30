@@ -1,0 +1,7 @@
+*.swp
+*.tmp
+**/.zcompdump*
+**/.zsh_history
+**/.zsh_sessions/
+**/.zwc
+.vscode/

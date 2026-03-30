@@ -1,20 +1,31 @@
+@define-color foreground #ffffff;
+@define-color background #030f1b;
+@define-color accent #00ffff;
+@define-color accent_hover #00d9d9;
+@define-color card_bg #061B37;
+@define-color text_dark #030f1b;
+@define-color muted #45475a;
+@define-color selected_tab @accent;
+
 * {
   all: unset;
-  font-family: JetBrains Mono NF;
-  color: #ECF2F8;
+  font-family: "JetBrainsMono Nerd Font";
+  color: @foreground;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .window {
-  border-radius: 5px;
-  background-color: #0D1117;
-  border: solid 2px #21262D;
-  margin: 2px;
+  border-radius: 0px; 
+  background-color: @background;
+  border: 1px solid @card_bg;
+  margin: 0px;
+  padding: 8px;
 }
 
 tabs {
     padding: 0.5rem 1rem;
+    background-color: @background;
 }
 
 tabs > tab {
@@ -22,17 +33,18 @@ tabs > tab {
 }
 
 .tab-label {
-    color: #89929B;
+    color: alpha(@foreground, 0.6);
     transition: all 0.2s ease;
 }
 
-tabs > tab:checked > .tab-label, tabs > tab:active > .tab-label {
-    text-decoration: underline currentColor;
-    color: #ECF2F8;
+tabs > tab:checked > .tab-label, 
+tabs > tab:active > .tab-label {
+    text-decoration: underline @accent;
+    color: @selected_tab;
 }
 
 tabs > tab:focus > .tab-label {
-    color: #ECF2F8;
+    color: @accent;
 }
 
 .page {
@@ -40,40 +52,67 @@ tabs > tab:focus > .tab-label {
 }
 
 .image-label {
-    font-size: 12px;
+    font-size: 14px;
     padding: 0.25rem;
+    color: @foreground;
 }
 
-flowboxchild > .card, button > .card {
+flowboxchild > .card, 
+button > .card {
     transition: all 0.2s ease;
-    border: solid 2px transparent;
-    border-color: #161B22;
-    border-radius: 5px;
-    background-color: #161B22;
+    border: 1px solid @card_bg;
+    border-radius: 0px;
+    background-color: @card_bg;
     padding: 5px;
 }
 
-flowboxchild:active > .card, flowboxchild:selected > .card, button:active > .card, button:selected > .card, button:focus > .card {
-    border: solid 2px #61AFEF;
+/* Efecto Hover y Seleccionado de la nueva configuración */
+flowboxchild:hover > .card, 
+button:hover > .card, 
+flowboxchild:active > .card, 
+flowboxchild:selected > .card, 
+button:active > .card, 
+button:selected > .card, 
+button:focus > .card {
+    border: 1px solid @accent;
+    background-color: alpha(@accent, 0.1);
 }
 
 .image {
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 .region-button {
     padding: 0.5rem 1rem;
-    border-radius: 5px;
-    background-color: #61AFEF;
-    color: #161B22;
+    border-radius: 0px;
+    background-color: @accent;
+    color: @text_dark;
     transition: all 0.2s ease;
 }
 
-.region-button:not(:disabled):hover, .region-button:not(:disabled):focus {
-    background-color: #2472C8;
+.region-button label {
+    color: @text_dark;
+}
+
+.region-button:not(:disabled):hover {
+    background-color: @accent_hover;
+    box-shadow: 0 0 12px alpha(@accent, 0.5);
+}
+
+.region-button:not(:disabled):active {
+    background-color: @accent;
+    box-shadow: 0 0 5px alpha(@accent, 0.8);
+    transition: all 0.1s ease;
+}
+
+.region-button:focus {
+    background-color: @accent_hover;
+    box-shadow: none;
+    outline: none;
 }
 
 .region-button:disabled {
-    background-color: #89929B;
-    color: #21262D;
+    background-color: @muted;
+    color: alpha(@foreground, 0.4);
+    box-shadow: none;
 }

@@ -10,10 +10,13 @@
  */
 
 /* GTK syntax colors */
-@define-color bg_dark #030f1b; /* #2E3440, option1 #030f1b, option2 #1B1E35 */
-@define-color bg_medium #061B37; /* #3B4252, option1 #061B37, option2 #282B49 */
-@define-color text_light #ffffff;
-@define-color accent #00ffff; /* #88C0D0, #00ffff */
+@define-color foreground #ffffff;
+@define-color background #030f1b;
+@define-color accent #00ffff;
+@define-color accent_hover #00d9d9;
+@define-color card_bg #061B37;
+@define-color text_dark #030f1b;
+@define-color muted #45475a;
 
 * {
     font-family: "JetBrainsMono Nerd Font";
@@ -27,9 +30,8 @@ window {
     all: unset;
     padding: 20px;
     border-radius: 0px;
-    border: 1px solid @bg_medium;
-    background-color: @bg_dark;
-    
+    border: 1px solid @card_bg;
+    background-color: @background;
 }
 
 #outer-box {
@@ -45,16 +47,17 @@ window {
 #input {
     all: unset;
     padding: 10px 0;
-    background: @bg_medium;
+    background: @card_bg;
+    color: @foreground;
 }
 
 #input image {
     padding: 0 12px;
-    /* color: @bg_medium; hide search & delete */
+    /* color: @card_bg; hide search & delete */
 }
 
 #text {
-    color: @text_light;
+    color: @foreground;
 }
 
 #entry {
@@ -64,23 +67,29 @@ window {
 
 #entry arrow {
     padding-left: 8px;
-    color: @text_light;
+    color: @foreground;
 }
 
 #entry:hover {
-    background-color: alpha(@bg_dark, 0.3);
+    background-color: alpha(@background, 0.2);
 }
+
 
 #entry:selected {
     background-color: @accent;
 }
 
+#entry:selected #entry:selected {
+    background-color: alpha(@background, 0.3);
+}
+
+
 #entry:selected arrow {
-    color: @bg_dark;
+    color: @text_dark;
 }
 
 #entry:selected #text {
-    color: @bg_dark;
+    color: @text_dark;
 }
 
 #img {

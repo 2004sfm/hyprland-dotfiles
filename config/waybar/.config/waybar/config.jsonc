@@ -40,8 +40,8 @@
     }
   },
   "custom/launcher": {
-    "format": "<span color='#0ff'> </span>",
-    "on-click": "$HOME/.local/bin/scripts/wofi.sh",
+    "format": "<span color='#0ff'></span>",
+    "on-click": "$HOME/.local/bin/wofi-launcher",
     "on-click-right": "killall wofi"
   },
   "cpu": {
@@ -90,11 +90,11 @@
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format": "{icon}",
-    "format-wifi": "{icon}  {essid}",
+    "format-wifi": "{icon} {essid}",
     "format-ethernet": "󰀂 ",
     "format-disconnected": "󰖪 ",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
@@ -127,15 +127,15 @@
     "format": "{icon} {volume}%",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
-    "format-muted": "󰝟  {volume}%",
+    "format-muted": "󰝟 {volume}%",
     "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "phone": " ",
-      "portable": " ",
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
       "car": "",
-      "default": [" ", " ", " "]
+      "default": ["", "", ""]
     }
   },
   "custom/power":{

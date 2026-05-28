@@ -1,13 +1,19 @@
 # Load Oh-My-Zsh
 ohmyzsh/ohmyzsh path:lib
-# Theme Oh-My-Zsh
-$ZDOTDIR/themes/arch.zsh-theme kind:zsh
+
 # Oh-My-Zsh Plugins
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 
+# fzf integration
+junegunn/fzf path:shell/key-bindings.zsh
+junegunn/fzf path:shell/completion.zsh
+
 # Plugins
 zsh-users/zsh-autosuggestions
-zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting
+
+# Oh-My-Zsh custom theme
+$ZDOTDIR/themes/arch.zsh-theme kind:zsh

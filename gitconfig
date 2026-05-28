@@ -1,0 +1,11 @@
+[core]
+    editor = nvim
+    autocrlf = input
+
+[credential]
+    helper = /usr/lib/git-core/git-credential-libsecret
+
+# INSTRUCTIONS:
+# Copy the 2 lines below and paste them into your LOCAL config file located at: ~/.gitconfig
+# [include]
+#     path = ~/hyprland-dotfiles/gitconfig

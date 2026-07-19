@@ -1,21 +1,11 @@
 {
-  "reload_style_on_change":true,
-  "margin":"12 12 0",
+  "reload_style_on_change": true,
+  "margin": null, // "12 12 0"
   "spacing": 4,
   "height": 32,
-  "modules-left": [
-    "custom/launcher",
-    "hyprland/workspaces"
-  ],
-  "modules-center": [
-    "clock"
-  ],
-  "modules-right": [
-    "pulseaudio",
-    "bluetooth",
-    "network",
-    "battery"
-  ],
+  "modules-left": ["custom/launcher", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "bluetooth", "network", "battery"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -29,30 +19,32 @@
       "6": "6",
       "7": "7",
       "8": "8",
-      "9": "9"
+      "9": "9",
     },
     "persistent-workspaces": {
       "1": [],
       "2": [],
       "3": [],
       "4": [],
-      "5": []
-    }
+      "5": [],
+    },
   },
   "custom/launcher": {
     "format": "<span color='#0ff'></span>",
     "on-click": "$HOME/.local/bin/wofi-launcher",
-    "on-click-right": "killall wofi"
+    "on-click-right": "killall wofi",
+    "tooltip": true,
+    "tooltip-format": " famtiago", // Enter your username (whoami in shell)
   },
   "cpu": {
     "interval": 5,
-    "format": "󰍛 {usage}%"
+    "format": "󰍛 {usage}%",
   },
   "memory": {
     "states": {
       "c": 90,
       "h": 60,
-      "m": 30
+      "m": 30,
     },
     "interval": 10,
     "format": "󰾆 {percentage}%",
@@ -63,7 +55,7 @@
     "format-alt": "󰾆 {used}GB",
     "max-length": 10,
     "tooltip": true,
-    "tooltip-format": "󰾆 Memory usage: {percentage}%\n Used: {used:0.2f}GB / {total:0.2f}GB\n Available: {avail:0.2f}GB"
+    "tooltip-format": "󰾆 Memory usage: {percentage}%\n Used: {used:0.2f}GB / {total:0.2f}GB\n Available: {avail:0.2f}GB",
   },
   "clock": {
     "format": "{:%A, %d %B | %H:%M}",
@@ -76,29 +68,29 @@
       "format": {
         "months": "<span color='#ffead3'><b>{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b>{}</b></span>"
-      }
+        "today": "<span color='#ff6699'><b>{}</b></span>",
+      },
     },
     "actions": {
       "on-click-right": "mode",
       "on-click-forward": "tz_up",
       "on-click-backward": "tz_down",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
+      "on-scroll-down": "shift_down",
+    },
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format": "{icon}",
     "format-wifi": "{icon} {essid}",
-    "format-ethernet": "󰀂 ",
-    "format-disconnected": "󰖪 ",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰖪",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "max-length": 10
+    "max-length": 10,
   },
   "battery": {
     "format": "{icon}",
@@ -108,20 +100,21 @@
     "format-full": "󰂅 {capacity}%",
     "format-icons": {
       "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     },
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}% | {time}",
     "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}% | {time}",
-    "interval": 5
+    "interval": 5,
   },
   "bluetooth": {
     "format": " on",
-    // "format-off": "󰂲 off",
+    "format-on": " on",
+    "format-off": "󰂲 off",
     "format-disabled": "󰂲 off",
-    "format-connected": " on",
+    "format-connected": "󰂱 on",
     "format-no-controller": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "blueman-manager"
+    "on-click": "blueman-manager",
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -135,13 +128,13 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
-    }
+      "default": ["", "", ""],
+    },
   },
-  "custom/power":{
-      "format": "",
-      "on-click": "wlogout -b 2"
-  }
+  "custom/power": {
+    "format": "",
+    "on-click": "wlogout -b 2",
+  },
 }
 
 //icon unicode of rambo \ue901, \

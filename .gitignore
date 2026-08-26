@@ -8,5 +8,5 @@
 .vscode/
 engram
 .atl
-config/uwsm/.config/uwsm/default-id
+**/default-id
 .config

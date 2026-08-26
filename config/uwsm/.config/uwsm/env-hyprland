@@ -1,0 +1,4 @@
+# UWSM Hyprland-Specific Environment Variables
+# Variables that ONLY apply to the Hyprland compositor (starting with HYPR_ or AQ_) go here.
+
+# export AQ_DRM_DEVICES=/dev/dri/card1

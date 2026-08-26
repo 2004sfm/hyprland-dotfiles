@@ -1,0 +1,33 @@
+# ==============================================================================
+# UWSM General Environment Variables
+# ==============================================================================
+
+# ARCHITECTURE NOTE:
+# - XDG variables (XDG_CURRENT_DESKTOP, etc.) are omitted because UWSM auto-injects them.
+# - NVIDIA and Multi-GPU variables are omitted because this system uses integrated Intel graphics.
+
+# Toolkit Backends
+export GDK_BACKEND="wayland,x11,*"
+export QT_QPA_PLATFORM="wayland;xcb"
+export SDL_VIDEODRIVER="wayland"
+export CLUTTER_BACKEND="wayland"
+
+# Qt Configuration
+export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# Uncomment STRICTLY if using a HiDPI (4K) monitor and Qt apps appear tiny:
+# export QT_AUTO_SCREEN_SCALE_FACTOR="1"
+
+# Themes and Cursors
+export XCURSOR_THEME="Bibata-Modern-Classic"
+export XCURSOR_SIZE="24"
+
+# GTK_THEME is intentionally omitted. The GTK theme is applied dynamically
+# using `gsettings` directly within the Hyprland autostart.lua file.
+
+# Mozilla & Firefox
+export MOZ_ENABLE_WAYLAND="1"
+
+# Electron & Other Apps
+export ELECTRON_OZONE_PLATFORM_HINT="auto"

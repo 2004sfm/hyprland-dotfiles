@@ -1,0 +1,18 @@
+#!/bin/bash
+
+SYSTEM_APPS="/usr/share/applications"
+LOCAL_APPS="$HOME/.local/share/applications"
+
+mkdir -p "$LOCAL_APPS"
+
+for file in "$SYSTEM_APPS"/*.desktop; do
+    if grep -iq "^NoDisplay=true" "$file"; then
+        continue
+    fi
+
+    app_name="${file##*/}"
+
+    cp "$file" "$LOCAL_APPS/$app_name"
+
+    sed -i '/^Exec=uwsm/! s/^Exec=/Exec=uwsm app -- /' "$LOCAL_APPS/$app_name"
+done

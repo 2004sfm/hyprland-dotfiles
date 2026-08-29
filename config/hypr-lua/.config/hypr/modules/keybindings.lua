@@ -10,9 +10,11 @@ local uwsm        = "uwsm app -- "
 -- Set programs that you use (wrapped in UWSM natively)
 local terminal    = uwsm .. "kitty"
 local fileManager = uwsm .. "nautilus"
-local menu        = uwsm .. "wofi-launcher"
+local menu        = uwsm .. ".local/bin/wofi-launcher"
 local browser     = uwsm .. "zen-browser"
 local editor      = uwsm .. "zeditor"
+local zapzap      = uwsm .. "zapzap"
+local vesktop     = uwsm .. "vesktop"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
@@ -21,8 +23,8 @@ hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(browser .. " --private-window
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(editor))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(uwsm .. "zapzap"))
-hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(uwsm .. "vesktop"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(zapzap))
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(vesktop))
 
 
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())

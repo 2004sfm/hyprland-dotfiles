@@ -4,17 +4,21 @@
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
--- UWSM wrapper variable
-local uwsm        = "uwsm app -- "
+-- Check if the environment wrapper (uwsm) is available in the system
+local uwsm_installed = os.execute("command -v uwsm >/dev/null 2>&1")
+local is_uwsm = uwsm_installed == true or uwsm_installed == 0
 
--- Set programs that you use (wrapped in UWSM natively)
-local terminal    = uwsm .. "kitty"
-local fileManager = uwsm .. "nautilus"
-local menu        = uwsm .. ".local/bin/wofi-launcher"
-local browser     = uwsm .. "zen-browser"
-local editor      = uwsm .. "zeditor"
-local zapzap      = uwsm .. "zapzap"
-local vesktop     = uwsm .. "vesktop"
+-- Set dynamic execution prefix
+local exec_prefix = is_uwsm and "uwsm app -- " or ""
+
+-- Define desktop applications with the proper execution prefix
+local terminal    = exec_prefix .. "kitty"
+local fileManager = exec_prefix .. "nautilus"
+local menu        = exec_prefix .. "hyprlauncher" -- or use wofi launcher with ".local/bin/wofi-launcher"
+local browser     = exec_prefix .. "zen-browser"
+local editor      = exec_prefix .. "zeditor"
+local zapzap      = exec_prefix .. "zapzap"
+local vesktop     = exec_prefix .. "vesktop"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
@@ -26,22 +30,22 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(zapzap))
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(vesktop))
 
+-- Hyprshot (Clipboard Only)
+hl.bind("PRINT", hl.dsp.exec_cmd(exec_prefix .. "hyprshot -m output -m active --clipboard-only"))               -- Screenshot a monitor
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(exec_prefix .. "hyprshot -m window -m active --clipboard-only")) -- Screenshot a window
+hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd(exec_prefix .. "hyprshot -m region --clipboard-only"))   -- Screenshot a region
+
 
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 
 -- Fullscreen and Maximize
-hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen_state({ internal = 1, client = 1, action = "toggle" })) -- Maximizar (respeta la barra)
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen_state({ internal = 2, client = 2, action = "toggle" })) -- Fullscreen real
+hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen_state({ internal = 1, client = 1, action = "toggle" })) -- Maximize
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen_state({ internal = 2, client = 2, action = "toggle" })) -- Fullscreen
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" })) -- float window
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + TAB", hl.dsp.layout("togglesplit"))    -- dwindle only
-
-
--- Exit UWSM properly
--- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("uwsm stop"))
-
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))

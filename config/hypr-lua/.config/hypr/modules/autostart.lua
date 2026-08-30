@@ -24,6 +24,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("uwsm app -- waybar")                                                               -- Status bar
     hl.exec_cmd("uwsm app -- hyprpaper")                                                            -- Wallpaper daemon
     hl.exec_cmd("uwsm app -- dunst")                                                                -- Notification daemon
+    hl.exec_cmd("uwsm app -- hyprlauncher -d")                                                      -- App launcher
 
     -- System Services & Clipboard
     hl.exec_cmd("uwsm app -- wl-clip-persist --clipboard regular")                                  -- Clipboard history

@@ -9,8 +9,8 @@
 
 hl.on("hyprland.start", function()
     -- Authentication Agent (Polkit)
-    hl.exec_cmd("uwsm app -- /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-    -- hl.exec_cmd("uwsm app -- hyprpolkitagent")                                                   -- Hyprland native alternative
+    hl.exec_cmd(EXEC_PREFIX .. "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+    -- hl.exec_cmd(EXEC_PREFIX .. "hyprpolkitagent")                                                   -- Hyprland native alternative
 
     -- # Window Decorations
     hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Materia-dark'")
@@ -21,15 +21,15 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-size 24")                         -- Set GTK cursor size
     hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 24")                                       -- Set Hypr cursor theme
 
-    hl.exec_cmd("uwsm app -- waybar")                                                               -- Status bar
-    hl.exec_cmd("uwsm app -- hyprpaper")                                                            -- Wallpaper daemon
-    hl.exec_cmd("uwsm app -- dunst")                                                                -- Notification daemon
-    hl.exec_cmd("uwsm app -- hyprlauncher -d")                                                      -- App launcher
+    hl.exec_cmd(EXEC_PREFIX .. "waybar")                                                               -- Status bar
+    hl.exec_cmd(EXEC_PREFIX .. "hyprpaper")                                                            -- Wallpaper daemon
+    hl.exec_cmd(EXEC_PREFIX .. "dunst")                                                                -- Notification daemon
+    hl.exec_cmd(EXEC_PREFIX .. "hyprlauncher -d")                                                      -- App launcher
 
     -- System Services & Clipboard
-    hl.exec_cmd("uwsm app -- wl-clip-persist --clipboard regular")                                  -- Clipboard history
+    hl.exec_cmd(EXEC_PREFIX .. "wl-clip-persist --clipboard regular")                                  -- Clipboard history
 
     -- Idle & Power Management
     -- Manages screen dimming, locking, and system suspension based on inactivity
-    hl.exec_cmd("uwsm app -- hypridle")
+    hl.exec_cmd(EXEC_PREFIX .. "hypridle")
 end)

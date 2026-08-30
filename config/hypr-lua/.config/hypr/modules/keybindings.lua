@@ -4,21 +4,14 @@
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
--- Check if the environment wrapper (uwsm) is available in the system
-local uwsm_installed = os.execute("command -v uwsm >/dev/null 2>&1")
-local is_uwsm = uwsm_installed == true or uwsm_installed == 0
-
--- Set dynamic execution prefix
-local exec_prefix = is_uwsm and "uwsm app -- " or ""
-
 -- Define desktop applications with the proper execution prefix
-local terminal    = exec_prefix .. "kitty"
-local fileManager = exec_prefix .. "nautilus"
-local menu        = exec_prefix .. "hyprlauncher" -- or use wofi launcher with ".local/bin/wofi-launcher"
-local browser     = exec_prefix .. "zen-browser"
-local editor      = exec_prefix .. "zeditor"
-local zapzap      = exec_prefix .. "zapzap"
-local vesktop     = exec_prefix .. "vesktop"
+local terminal    = EXEC_PREFIX .. "kitty"
+local fileManager = EXEC_PREFIX .. "nautilus"
+local menu        = EXEC_PREFIX .. "hyprlauncher" -- or use wofi launcher with ".local/bin/wofi-launcher"
+local browser     = EXEC_PREFIX .. "zen-browser"
+local editor      = EXEC_PREFIX .. "zeditor"
+local zapzap      = EXEC_PREFIX .. "zapzap"
+local vesktop     = EXEC_PREFIX .. "vesktop"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
@@ -31,9 +24,9 @@ hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(zapzap))
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(vesktop))
 
 -- Hyprshot (Clipboard Only)
-hl.bind("PRINT", hl.dsp.exec_cmd(exec_prefix .. "hyprshot -m output -m active --clipboard-only"))               -- Screenshot a monitor
-hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(exec_prefix .. "hyprshot -m window -m active --clipboard-only")) -- Screenshot a window
-hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd(exec_prefix .. "hyprshot -m region --clipboard-only"))   -- Screenshot a region
+hl.bind("PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m output -m active --clipboard-only"))               -- Screenshot a monitor
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m window -m active --clipboard-only")) -- Screenshot a window
+hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m region --clipboard-only"))   -- Screenshot a region
 
 
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())

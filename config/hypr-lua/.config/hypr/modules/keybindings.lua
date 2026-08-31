@@ -23,6 +23,8 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(zapzap))
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(vesktop))
 
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("~/.local/bin/toggle-theme"))
+
 -- Hyprshot (Clipboard Only)
 hl.bind("PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m output -m active --clipboard-only"))               -- Screenshot a monitor
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m window -m active --clipboard-only")) -- Screenshot a window

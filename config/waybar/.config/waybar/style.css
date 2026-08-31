@@ -46,7 +46,8 @@ window#waybar {
 #pulseaudio,
 #custom-launcher,
 #custom-update,
-#custom-power {
+#custom-power,
+#custom-swaync {
     min-width: 12px;
     margin: 0 7.5px;
 }

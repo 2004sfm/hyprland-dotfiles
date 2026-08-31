@@ -12,10 +12,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd(EXEC_PREFIX .. "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
     -- hl.exec_cmd(EXEC_PREFIX .. "hyprpolkitagent")                                                   -- Hyprland native alternative
 
-    -- # Window Decorations
-    hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Materia-dark'")
-    hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
-
     -- UI Components
     hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'")   -- Set GTK cursor theme
     hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-size 24")                         -- Set GTK cursor size
@@ -23,7 +19,7 @@ hl.on("hyprland.start", function()
 
     hl.exec_cmd(EXEC_PREFIX .. "waybar")                                                               -- Status bar
     hl.exec_cmd(EXEC_PREFIX .. "hyprpaper")                                                            -- Wallpaper daemon
-    hl.exec_cmd(EXEC_PREFIX .. "dunst")                                                                -- Notification daemon
+    hl.exec_cmd(EXEC_PREFIX .. "swaync")                                                               -- Notification daemon
     hl.exec_cmd(EXEC_PREFIX .. "hyprlauncher -d")                                                      -- App launcher
 
     -- System Services & Clipboard

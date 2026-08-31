@@ -1,7 +1,12 @@
 @import url("../theme/colors.css");
 
+@define-color text            @fg;
+@define-color background      @bg0;
+@define-color border          @bd;
+
+
 * {
-    color: #fff;
+    color: @text;
     border: none;
     border-radius: 0;
     min-height: 0;
@@ -11,8 +16,8 @@
 
 window#waybar {
     border-radius: 0px;
-    border-bottom: 1px solid #313131;
-    background: #0c0c0d; /* background-menu #101010, selected #303030, background-alternative #030f1b */
+    border-bottom: 1px solid @border;
+    background: @background; /* background-menu #101010, selected #303030, background-alternative #030f1b */
 }
 
 .modules-left {

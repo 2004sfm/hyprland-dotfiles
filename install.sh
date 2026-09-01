@@ -61,6 +61,7 @@ yay -S --needed --noconfirm \
     nautilus \
     zoxide \
     fnm \
+    uv \
     rustup \
     zsh-antidote
 

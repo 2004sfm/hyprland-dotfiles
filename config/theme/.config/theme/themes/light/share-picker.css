@@ -1,0 +1,118 @@
+@define-color foreground    #1a1a1a; /* = light.css @fg */
+@define-color background    #f5f5f5; /* = light.css @bg0 */
+@define-color background-alt #f5f5f5; /* = light.css @bg2 */
+@define-color border        #c8c8c8; /* = light.css @bd */
+
+@define-color accent        #226bd4; /* = light.css @blue */
+@define-color accent-hover  #1f8999; /* = light.css @aqua */
+@define-color muted         #a0a0a0; /* = light.css @muted */
+
+* {
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font";
+  color: @foreground;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.window {
+  border-radius: 0px;
+  background-color: @background;
+  border: 1px solid @border;
+  margin: 0px;
+  padding: 8px;
+}
+
+tabs {
+    padding: 0.5rem 1rem;
+    background-color: @background;
+}
+
+tabs > tab {
+    margin-right: 1rem;
+}
+
+.tab-label {
+    color: alpha(@foreground, 0.6);
+    transition: all 0.2s ease;
+}
+
+tabs > tab:checked > .tab-label,
+tabs > tab:active > .tab-label {
+    text-decoration: underline @accent;
+    color: @accent;
+}
+
+tabs > tab:focus > .tab-label {
+    color: @accent;
+}
+
+.page {
+    padding: 1rem;
+}
+
+.image-label {
+    font-size: 14px;
+    padding: 0.25rem;
+    color: @foreground;
+}
+
+flowboxchild > .card,
+button > .card {
+    transition: all 0.2s ease;
+    border: 1px solid @border;
+    border-radius: 0px;
+    background-color: @background-alt;
+    padding: 5px;
+}
+
+/* Efecto Hover y Seleccionado de la nueva configuración */
+flowboxchild:hover > .card,
+button:hover > .card,
+flowboxchild:active > .card,
+flowboxchild:selected > .card,
+button:active > .card,
+button:selected > .card,
+button:focus > .card {
+    border: 1px solid @accent;
+    background-color: alpha(@accent, 0.1);
+}
+
+.image {
+    border-radius: 0px;
+}
+
+.region-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0px;
+    background-color: @accent;
+    color: @background;
+    transition: all 0.2s ease;
+}
+
+.region-button label {
+    color: @background;
+}
+
+.region-button:not(:disabled):hover {
+    background-color: @accent-hover;
+    box-shadow: 0 0 12px alpha(@accent, 0.5);
+}
+
+.region-button:not(:disabled):active {
+    background-color: @accent;
+    box-shadow: 0 0 5px alpha(@accent, 0.8);
+    transition: all 0.1s ease;
+}
+
+.region-button:focus {
+    background-color: @accent-hover;
+    box-shadow: none;
+    outline: none;
+}
+
+.region-button:disabled {
+    background-color: @muted;
+    color: alpha(@foreground, 0.4);
+    box-shadow: none;
+}

@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# ==============================================================================
+# set-theme: The N-Theme Manager
+# Usage: set-theme <theme_name> (e.g. set-theme dark, set-theme light)
+# ==============================================================================
+
+if [ -z "$1" ]; then
+    echo "Usage: set-theme <theme_name>"
+    echo "Available themes:"
+    ls ~/.config/theme/themes/
+    exit 1
+fi
+
+THEME=$1
+THEME_DIR="$HOME/.config/theme/themes/$THEME"
+
+# Validate if the theme exists
+if [ ! -d "$THEME_DIR" ]; then
+    echo "Error: Theme '$THEME' does not exist in ~/.config/theme/themes/"
+    exit 1
+fi
+
+# Determine standard color scheme mode (for GTK Apps)
+if [[ "$THEME" == *"light"* ]]; then
+    COLOR_SCHEME="prefer-light"
+    GTK_THEME="Materia-light"
+else
+    COLOR_SCHEME="prefer-dark"
+    GTK_THEME="Materia-dark"
+fi
+
+echo "Applying theme: $THEME..."
+
+# 1. Update GNOME/GTK Global Settings
+gsettings set org.gnome.desktop.interface color-scheme "$COLOR_SCHEME"
+gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
+
+# 2. Update Symlinks (The Theme Hub)
+# All these components read from their "current" symlinks
+ln -sf "$THEME_DIR/colors.css" "$HOME/.config/theme/css/current.css"
+ln -sf "$THEME_DIR/colors.lua" "$HOME/.config/theme/hypr/current.lua"
+ln -sf "$THEME_DIR/hyprlock.conf" "$HOME/.config/theme/hypr/hyprlock-current.conf"
+ln -sf "$THEME_DIR/hyprtoolkit.conf" "$HOME/.config/theme/hypr/hyprtoolkit-current.conf"
+ln -sf "$THEME_DIR/kitty.conf" "$HOME/.config/theme/kitty/current.conf"
+ln -sf "$THEME_DIR/share-picker.css" "$HOME/.config/theme/share-picker/current.css"
+
+# GTK3/GTK4 Symlinks (if they exist for the theme)
+if [ -f "$THEME_DIR/gtk3.ini" ]; then
+    ln -sf "$THEME_DIR/gtk3.ini" "$HOME/.config/gtk-3.0/settings.ini"
+fi
+if [ -f "$THEME_DIR/gtk4.ini" ]; then
+    ln -sf "$THEME_DIR/gtk4.ini" "$HOME/.config/gtk-4.0/settings.ini"
+fi
+
+# Cursor Symlinks
+if [ -f "$THEME_DIR/cursor.sh" ]; then
+    ln -sf "$THEME_DIR/cursor.sh" "$HOME/.config/theme/cursor/current.sh"
+fi
+
+# Wallpapers and Profiles
+ln -sf "$HOME/hyprland-dotfiles/pictures/$THEME-wallpaper.png" "$HOME/Pictures/Wallpapers/current-wallpaper.png"
+ln -sf "$HOME/hyprland-dotfiles/pictures/$THEME-profile.png" "$HOME/Pictures/Wallpapers/current-profile.png"
+
+# 3. Reload Styles & Apps
+echo "Reloading UI components..."
+# Restart Waybar
+pkill waybar
+waybar & disown
+
+# Restart hyprlauncher daemon
+pkill hyprlauncher || true
+hyprlauncher -d & disown
+
+# Restart SwayNC
+swaync-client -rs
+killall -SIGUSR1 kitty
+
+# Reload Hyprpaper
+hyprctl hyprpaper wallpaper ",$HOME/Pictures/Wallpapers/current-wallpaper.png"
+
+# Reload Hyprland to apply borders/colors
+hyprctl reload
+
+# Execute cursor script
+if [ -f "$HOME/.config/theme/cursor/current.sh" ]; then
+    bash "$HOME/.config/theme/cursor/current.sh"
+fi
+
+notify-send -u low -i preferences-desktop-theme "Theme Manager" "Switched to $THEME Mode"
+echo "Done."

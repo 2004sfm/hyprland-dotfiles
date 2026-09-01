@@ -11,8 +11,7 @@ hl.config({
         border_size = 1,
 
         col = {
-            active_border   = "0xFF313131",
-            inactive_border = "0x88313131",
+            -- Border colors managed by Theme Hub (~/.config/theme/hyprland/current.lua)
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -78,3 +77,12 @@ hl.animation({ leaf = "workspacesIn",     enabled = true,  speed = 1.21, bezier 
 hl.animation({ leaf = "workspacesOut",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "slidefade" })
 hl.animation({ leaf = "specialWorkspace", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "slidefadevert" })
 hl.animation({ leaf = "zoomFactor",       enabled = true,  speed = 7,    bezier = "quick" })
+
+-- Theme Hub: border colors (managed by toggle-theme)
+local theme = os.getenv("HOME") .. "/.config/theme/hypr/current.lua"
+if io.open(theme, "r") then
+    dofile(theme)
+else
+    -- Fallback: default dark borders (run toggle-theme or install.sh to set up symlinks)
+    hl.config({ general = { col = { active_border = "0xFF313131", inactive_border = "0x88313131" } } })
+end

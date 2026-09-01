@@ -1,4 +1,4 @@
-@import url("../theme/colors.css");
+@import url("../theme/css/current.css");
 
 @define-color text            @fg;
 @define-color background      @bg0;
@@ -37,7 +37,7 @@ window#waybar {
 
 #workspaces button.active {
     margin: 4px 0;
-    border-bottom: 3px solid #ffffff;
+    border-bottom: 3px solid @text;
 }
 
 #workspaces button.empty {

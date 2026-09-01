@@ -1,28 +1,22 @@
+@import url("../../theme/css/current.css");
+
 @define-color text            @fg;
 @define-color background      @bg0;
-@define-color background-alt  @bg0;
+@define-color background-alt  @bg1;
 @define-color border          @bd;
-@define-color selected        @slt;
+@define-color selected        @bg4;
 @define-color hover           alpha(@selected, .4);
 @define-color urgent          @red;
 
-
 * {
-
-  /*background-alt:        @color1;      Buttons background */
-  /*selected:              @color2;      Button selected */
-  /*hover:                 @color5;      Hover button */
-  /*urgent:                @color6;      Urgency critical */
-  /*text-selected:         @background; */
-
-  color: @text;
-
   all: unset;
   font-size: 14px;
   font-family: "JetBrains Mono Nerd Font 10";
   transition: 200ms;
-
 }
+
+* { color: @text; }
+
 
 .notification-row {
   outline: none;
@@ -31,7 +25,7 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  background: alpha(@background, .7);
+  background: alpha(@background, .8);
   box-shadow: 0 0 8px 0 rgba(0,0,0,.6);
   border: 1px solid @selected;
   border-radius: 24px;
@@ -80,10 +74,12 @@
 .summary {
   font-weight: 800;
   font-size: 1rem;
+  color: @text !important;
 }
 
 .body {
   font-size: 0.8rem;
+  color: @text !important;
 }
 
 .floating-notifications.background .notification-row .notification-background .close-button {

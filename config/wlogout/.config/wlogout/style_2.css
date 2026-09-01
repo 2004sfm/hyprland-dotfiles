@@ -1,6 +1,4 @@
-/* @define-color bg_dark #030f1b; */
-/* @define-color bg_medium #061B37; */
-
+@import url("../theme/css/current.css");
 * {
     background-image: none;
     font-family: "JetBrainsMono Nerd Font";
@@ -14,8 +12,8 @@ window {
 }
 
 button {
-    color: #fff;
-    background-color: #1A1B26;
+    color: @fg;
+    background-color: @bg0;
     border: 3px solid transparent;
     background-repeat: no-repeat;
     background-position: center;

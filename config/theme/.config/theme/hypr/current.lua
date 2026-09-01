@@ -1,0 +1,1 @@
+/home/famtiago/.config/theme/themes/dark/colors.lua

@@ -13,9 +13,7 @@ hl.on("hyprland.start", function()
     -- hl.exec_cmd(EXEC_PREFIX .. "hyprpolkitagent")                                                   -- Hyprland native alternative
 
     -- UI Components
-    hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'")   -- Set GTK cursor theme
-    hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-size 24")                         -- Set GTK cursor size
-    hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 24")                                       -- Set Hypr cursor theme
+    hl.exec_cmd(os.getenv("HOME") .. "/.config/theme/cursor/current.sh")                              -- Set cursor theme and size (managed by Theme Hub)
 
     hl.exec_cmd(EXEC_PREFIX .. "waybar")                                                               -- Status bar
     hl.exec_cmd(EXEC_PREFIX .. "hyprpaper")                                                            -- Wallpaper daemon

@@ -1,3 +1,5 @@
+@import url("../theme/css/current.css");
+
 * {
     background-image: none;
     font-family: "JetBrainsMono Nerd Font";
@@ -10,8 +12,8 @@ window {
 }
 
 button {
-    color: #FFFFFF;
-    background-color: #1A1B26;
+    color: @fg;
+    background-color: @bg0;
     
     outline-style: none;
     border: 3px solid transparent;

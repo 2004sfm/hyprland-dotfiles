@@ -1,0 +1,21 @@
+@define-color bg0 #0c0c0d; /* base background */
+@define-color bg1 #1e1e1e; /* panels / alt background */
+@define-color bg2 #2d2d2d; /* cards / surfaces */
+@define-color bg3 #3c3c3c; /* popups / floating */
+@define-color bg4 #4b4b4b; /* tooltips / elevated / selected */
+
+@define-color fg #ffffff; /* foreground */
+
+@define-color bd #3c3c3c; /* border */
+
+@define-color red      #e08c75;
+@define-color orange   #d19a66;
+@define-color yellow   #e5c07b;
+@define-color green    #98c379;
+@define-color aqua     #56b6c2;
+@define-color blue     #61afef;
+@define-color purple   #c678dd;
+
+@define-color accent        @blue;  /* primary interactive color */
+@define-color accent-hover  @aqua;  /* hover state */
+@define-color muted         #5c5c5c; /* disabled / subdued */

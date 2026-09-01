@@ -124,7 +124,7 @@ if [ -d "$HOME/.config/hypr" ] && [ ! -L "$HOME/.config/hypr" ]; then
 fi
 
 # Config packages (all live inside config/)
-for pkg in hypr-lua kitty waybar swaync uwsm zsh theme; do
+for pkg in hypr kitty waybar swaync uwsm zsh theme wofi wlogout hyprland-preview-share-picker; do
     stow_pkg "$DOTFILES_DIR/config" "$HOME" "$pkg"
 done
 
@@ -140,29 +140,9 @@ echo ""
 # ─── Theme Hub symlinks ────────────────────────────────────────────────────────
 
 echo "==> Setting up Theme Hub symlinks (default: dark)..."
-
-ln -sf ~/.config/theme/css/dark.css       ~/.config/theme/css/current.css
-echo "    css/current.css -> dark.css"
-
-ln -sf ~/.config/theme/kitty/dark.conf    ~/.config/theme/kitty/current.conf
-echo "    kitty/current.conf -> dark.conf"
-
-ln -sf ~/.config/theme/hypr/dark.lua      ~/.config/theme/hypr/current.lua
-echo "    hypr/current.lua -> dark.lua"
-
 mkdir -p ~/.config/gtk-3.0 ~/.config/gtk-4.0
 
-ln -sf ~/.config/theme/gtk3/dark.ini      ~/.config/gtk-3.0/settings.ini
-echo "    gtk-3.0/settings.ini -> theme/gtk3/dark.ini"
-
-ln -sf ~/.config/theme/gtk4/dark.ini      ~/.config/gtk-4.0/settings.ini
-echo "    gtk-4.0/settings.ini -> theme/gtk4/dark.ini"
-
-ln -sf ~/hyprland-dotfiles/pictures/wallpaper-1920x1080.png ~/Pictures/Wallpapers/current-wallpaper.png
-echo "    current-wallpaper.png -> ~/hyprland-dotfiles/pictures/wallpaper-1920x1080.png"
-
-ln -sf ~/.config/theme/cursor/dark.sh     ~/.config/theme/cursor/current.sh
-echo "    cursor/current.sh -> dark.sh"
+~/.local/bin/set-theme dark
 
 echo ""
 echo "Done! Default theme: dark."

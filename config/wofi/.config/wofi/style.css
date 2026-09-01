@@ -10,13 +10,15 @@
  */
 
 /* GTK syntax colors */
-@define-color foreground #ffffff;
-@define-color background #030f1b;
-@define-color accent #00ffff;
-@define-color accent_hover #00d9d9;
-@define-color card_bg #061B37;
-@define-color text_dark #030f1b;
-@define-color muted #45475a;
+@import url("/home/famtiago/.config/theme/css/current.css");
+
+@define-color text         @fg;
+@define-color background   @bg0;
+@define-color background-alt @bg1;
+@define-color border       @bd;
+
+@define-color selected     @blue;
+@define-color hover        alpha(@bg4, .3);
 
 * {
     font-family: "JetBrainsMono Nerd Font";
@@ -30,7 +32,7 @@ window {
     all: unset;
     padding: 20px;
     border-radius: 0px;
-    border: 1px solid @card_bg;
+    border: 1px solid @border;
     background-color: @background;
 }
 
@@ -38,7 +40,7 @@ window {
     margin: 5px;
 }
 
-#inner-box, 
+#inner-box,
 #scroll {
     margin: 0px;
     padding: 0px;
@@ -47,8 +49,8 @@ window {
 #input {
     all: unset;
     padding: 10px 0;
-    background: @card_bg;
-    color: @foreground;
+    background: @background-alt;
+    color: @text;
 }
 
 #input image {
@@ -57,7 +59,7 @@ window {
 }
 
 #text {
-    color: @foreground;
+    color: @text;
 }
 
 #entry {
@@ -67,16 +69,17 @@ window {
 
 #entry arrow {
     padding-left: 8px;
-    color: @foreground;
+    color: @text;
 }
 
 #entry:hover {
-    background-color: alpha(@background, 0.2);
+    background-color: @hover;
+    border: none;
 }
 
 
 #entry:selected {
-    background-color: @accent;
+    background-color: @selected;
 }
 
 #entry:selected #entry:selected {
@@ -85,11 +88,11 @@ window {
 
 
 #entry:selected arrow {
-    color: @text_dark;
+    color: @background;
 }
 
 #entry:selected #text {
-    color: @text_dark;
+    color: @background;
 }
 
 #img {

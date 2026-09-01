@@ -8,19 +8,11 @@
 # https://briancarper.net/blog/570/git-info-in-your-zsh-prompt
 
 #use extended color palette if available
-if [[ $TERM = (*256color|*rxvt*) ]]; then
-  turquoise="%{${(%):-"%F{81}"}%}"
-  orange="%{${(%):-"%F{166}"}%}"
-  purple="%{${(%):-"%F{135}"}%}"
-  hotpink="%{${(%):-"%F{161}"}%}"
-  limegreen="%{${(%):-"%F{118}"}%}"
-else
   turquoise="%{${(%):-"%F{cyan}"}%}"
   orange="%{${(%):-"%F{yellow}"}%}"
   purple="%{${(%):-"%F{magenta}"}%}"
   hotpink="%{${(%):-"%F{red}"}%}"
   limegreen="%{${(%):-"%F{green}"}%}"
-fi
 
 autoload -Uz vcs_info
 # enable VCS systems you use

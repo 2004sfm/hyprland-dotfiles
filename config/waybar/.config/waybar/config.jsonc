@@ -31,7 +31,7 @@
   },
   "custom/launcher": {
     "format": "<span color='#0ff'></span>",
-    "on-click": "$HOME/.local/bin/wofi-launcher",
+    "on-click": "",
     "on-click-right": "killall wofi",
     "tooltip": true,
     "tooltip-format": " famtiago", // Enter your username (whoami in shell)

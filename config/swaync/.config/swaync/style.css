@@ -1,3 +1,4 @@
-@import url("../theme/colors.css");
+@import url("../theme/css/current.css");
+
 @import 'themes/notifications.css';
 @import 'themes/central_control.css';

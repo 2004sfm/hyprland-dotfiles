@@ -1,21 +1,21 @@
+@import url("../../theme/css/current.css");
+
 @define-color text            @fg;
 @define-color background      @bg0;
 @define-color background-alt  @bg1;
 @define-color border          @bd;
-@define-color selected        @slt;
+@define-color selected        @bg4;
 @define-color hover           alpha(@selected, .4);
 @define-color urgent          @red;
 
-
 * {
-  color:            @text;
-
   all: unset;
   font-size: 14px;
   font-family: "JetBrainsMono Nerd Font Propo";
   transition: 200ms;
-
 }
+
+* { color: @text; }
 
 /* Avoid 'annoying' backgroud */
 .blank-window {
@@ -25,7 +25,7 @@
 /* CONTROL CENTER ------------------------------------------------------------------------ */
 
 .control-center {
-  background: alpha(@background, .7);
+  background: alpha(@background, .8);
   border-radius: 0;
   border: 1px solid @border;
   box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
@@ -107,7 +107,7 @@ progressbar {
 .notification-group-headers {
   font-weight: bold;
   font-size: 1.25rem;
-  color: @text;
+  color: @text !important;
   letter-spacing: 2px;
 }
 

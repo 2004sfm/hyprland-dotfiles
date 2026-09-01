@@ -42,28 +42,57 @@ echo ""
 
 # ─── Install dependencies ──────────────────────────────────────────────────────
 
-echo "==> Installing required packages..."
-yay -S --needed --noconfirm \
-    stow \
-    kitty \
-    waybar \
-    swaync \
-    hyprpaper \
-    hypridle \
-    hyprshot \
-    polkit-gnome \
-    wl-clip-persist \
-    brightnessctl \
-    playerctl \
-    wireplumber \
-    bibata-cursor-theme \
-    materia-gtk-theme \
-    nautilus \
-    zoxide \
-    fnm \
-    uv \
-    rustup \
-    zsh-antidote
+echo "==> Resolving modules..."
+
+# 1. Apps (GUI & CLI tools)
+APPS=(
+    "kitty"
+    "nautilus"
+)
+
+# 2. Dotfiles core (Daemons, plugins, themes, system integration)
+DOTFILES_CORE=(
+    "stow"
+    "waybar"
+    "swaync"
+    "hyprpaper"
+    "hypridle"
+    "hyprshot"
+    "polkit-gnome"
+    "wl-clip-persist"
+    "brightnessctl"
+    "playerctl"
+    "wireplumber"
+    "zoxide"
+    "zsh-antidote"
+    "bibata-cursor-theme"
+    "materia-gtk-theme"
+)
+
+# 3. Gestores (Version Managers)
+GESTORES=(
+    "fnm"
+    "uv"
+    "rustup"
+)
+
+# 4. Fonts
+FONTS=(
+    "ttf-jetbrains-mono-nerd"
+    "apple-fonts"
+)
+
+echo "==> Installing Apps..."
+yay -S --needed --noconfirm "${APPS[@]}"
+
+echo "==> Installing Dotfiles Core..."
+yay -S --needed --noconfirm "${DOTFILES_CORE[@]}"
+
+echo "==> Installing Gestores..."
+yay -S --needed --noconfirm "${GESTORES[@]}"
+
+echo "==> Installing Fonts..."
+yay -S --needed --noconfirm "${FONTS[@]}"
 
 echo "==> Configuring Rust toolchain (rustup default stable)..."
 rustup default stable

@@ -32,11 +32,11 @@ fi
 
 echo "Applying theme: $THEME..."
 
-# 1. Update GNOME/GTK Global Settings
+# Update GNOME/GTK Global Settings
 gsettings set org.gnome.desktop.interface color-scheme "$COLOR_SCHEME"
 gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
 
-# 2. Update Symlinks (The Theme Hub)
+# Update Symlinks (The Theme Hub)
 # All these components read from their "current" symlinks
 ln -sf "$THEME_DIR/colors.css" "$HOME/.config/theme/css/current.css"
 ln -sf "$THEME_DIR/colors.lua" "$HOME/.config/theme/hypr/current.lua"
@@ -64,13 +64,20 @@ ln -sf "$HOME/hyprland-dotfiles/pictures/$THEME-profile.png" "$HOME/Pictures/Wal
 
 # 3. Reload Styles & Apps
 echo "Reloading UI components..."
+# Determine if we should use uwsm for launching apps
+if command -v uwsm &> /dev/null; then
+    EXEC_PREFIX="uwsm app -- "
+else
+    EXEC_PREFIX=""
+fi
+
 # Restart Waybar
 pkill waybar
-waybar & disown
+${EXEC_PREFIX}waybar & disown
 
 # Restart hyprlauncher daemon
 pkill hyprlauncher || true
-hyprlauncher -d & disown
+${EXEC_PREFIX}hyprlauncher -d & disown
 
 # Restart SwayNC
 swaync-client -rs

@@ -82,9 +82,6 @@ FONTS=(
     "apple-fonts"
 )
 
-echo "==> Installing Apps..."
-yay -S --needed --noconfirm "${APPS[@]}"
-
 echo "==> Installing Dotfiles Core..."
 yay -S --needed --noconfirm "${DOTFILES_CORE[@]}"
 
@@ -93,6 +90,9 @@ yay -S --needed --noconfirm "${MANAGERS[@]}"
 
 echo "==> Installing Fonts..."
 yay -S --needed --noconfirm "${FONTS[@]}"
+
+echo "==> Installing Apps..."
+yay -S --needed --noconfirm "${APPS[@]}"
 
 echo "==> Configuring Rust toolchain (rustup default stable)..."
 rustup default stable

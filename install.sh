@@ -48,6 +48,7 @@ echo "==> Resolving modules..."
 APPS=(
     "kitty"
     "nautilus"
+    "blueman"
 )
 
 # Dotfiles core (Daemons, plugins, themes, system integration)
@@ -63,6 +64,8 @@ DOTFILES_CORE=(
     "brightnessctl"
     "playerctl"
     "wireplumber"
+    "bluez"
+    "bluez-utils"
     "zoxide"
     "zsh-antidote"
     "bibata-cursor-theme"

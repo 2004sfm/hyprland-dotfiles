@@ -59,6 +59,7 @@ DOTFILES_CORE=(
     "hyprpaper"
     "hypridle"
     "hyprshot"
+    "hyprland-preview-share-picker-git"
     "polkit-gnome"
     "wl-clip-persist"
     "brightnessctl"

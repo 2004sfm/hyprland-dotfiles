@@ -1,10 +1,12 @@
-@define-color foreground #ffffff;
-@define-color background #030f1b;
-@define-color accent #00ffff;
-@define-color accent_hover #00d9d9;
-@define-color card_bg #061B37;
-@define-color text_dark #030f1b;
-@define-color muted #45475a;
+@import url("../theme/css/current.css");
+
+@define-color foreground @fg;
+@define-color background @bg0;
+@define-color accent @blue;
+@define-color accent_hover @purple;
+@define-color card_bg @bg0;
+@define-color text_dark @bg0;
+@define-color muted @bd;
 @define-color selected_tab @accent;
 
 * {

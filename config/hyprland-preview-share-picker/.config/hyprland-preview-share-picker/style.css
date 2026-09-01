@@ -1,5 +1,9 @@
-@define-color foreground #ffffff;
-@define-color background #030f1b;
+@import url("/home/famtiago/.config/theme/css/current.css");
+
+@define-color foreground @fg;
+@define-color background @bg0;
+
+
 @define-color accent #00ffff;
 @define-color accent_hover #00d9d9;
 @define-color card_bg #061B37;
@@ -16,7 +20,7 @@
 }
 
 .window {
-  border-radius: 0px; 
+  border-radius: 0px;
   background-color: @background;
   border: 1px solid @card_bg;
   margin: 0px;
@@ -37,7 +41,7 @@ tabs > tab {
     transition: all 0.2s ease;
 }
 
-tabs > tab:checked > .tab-label, 
+tabs > tab:checked > .tab-label,
 tabs > tab:active > .tab-label {
     text-decoration: underline @accent;
     color: @selected_tab;
@@ -57,7 +61,7 @@ tabs > tab:focus > .tab-label {
     color: @foreground;
 }
 
-flowboxchild > .card, 
+flowboxchild > .card,
 button > .card {
     transition: all 0.2s ease;
     border: 1px solid @card_bg;
@@ -67,12 +71,12 @@ button > .card {
 }
 
 /* Efecto Hover y Seleccionado de la nueva configuración */
-flowboxchild:hover > .card, 
-button:hover > .card, 
-flowboxchild:active > .card, 
-flowboxchild:selected > .card, 
-button:active > .card, 
-button:selected > .card, 
+flowboxchild:hover > .card,
+button:hover > .card,
+flowboxchild:active > .card,
+flowboxchild:selected > .card,
+button:active > .card,
+button:selected > .card,
 button:focus > .card {
     border: 1px solid @accent;
     background-color: alpha(@accent, 0.1);

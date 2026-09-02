@@ -63,6 +63,7 @@ DOTFILES_CORE=(
     "hyprland"
     "uwsm"
     "xdg-desktop-portal-hyprland"
+    "xdg-user-dirs"
     "qt5-wayland"
     "qt6-wayland"
     "stow"
@@ -114,6 +115,9 @@ yay -S --needed --noconfirm "${APPS[@]}"
 
 echo "==> Configuring Rust toolchain (rustup default stable)..."
 rustup default stable
+
+echo "==> Generating standard user directories (Downloads, Pictures, etc.)..."
+xdg-user-dirs-update
 
 echo ""
 

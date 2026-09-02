@@ -10,6 +10,18 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "==> Dotfiles directory: $DOTFILES_DIR"
 echo ""
 
+echo -n "==> Do you want to update Pacman mirrors using reflector? (y/N) "
+read -r update_mirrors
+if [[ "$update_mirrors" =~ ^[Yy]$ ]]; then
+    echo "==> Installing reflector and updating mirrors..."
+    sudo pacman -S --needed --noconfirm reflector
+    sudo reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+    echo "==> Mirrors updated successfully."
+else
+    echo "==> Skipping mirror update."
+fi
+echo ""
+
 # ─── Install Chaotic AUR ─────────────────────────────────────────────────────────
 
 if ! grep -qF "[chaotic-aur]" /etc/pacman.conf; then
@@ -53,7 +65,6 @@ APPS=(
     "neovim"
     "zen-browser-bin"
     "wofi"
-    "reflector"
     "htop"
     "tree"
 )

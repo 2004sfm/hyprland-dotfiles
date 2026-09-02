@@ -119,6 +119,11 @@ rustup default stable
 echo "==> Generating standard user directories (Downloads, Pictures, etc.)..."
 xdg-user-dirs-update
 
+echo "==> Setting ZSH as the default shell..."
+if [ "$SHELL" != "$(which zsh)" ]; then
+    chsh -s "$(which zsh)"
+fi
+
 echo ""
 
 # ─── Helper ───────────────────────────────────────────────────────────────────

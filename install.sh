@@ -157,6 +157,9 @@ if ! grep -q "^HandleLidSwitch=ignore" /etc/systemd/logind.conf; then
     sudo systemctl restart systemd-logind || true
 fi
 
+echo "==> Enabling system services (Bluetooth)..."
+sudo systemctl enable bluetooth.service
+
 # Backup ~/.config/hypr if it's a real directory (not a symlink from a previous stow)
 if [ -d "$HOME/.config/hypr" ] && [ ! -L "$HOME/.config/hypr" ]; then
     echo "    ~/.config/hypr exists as a real directory — renaming to hypr.bak"

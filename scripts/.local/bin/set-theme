@@ -63,6 +63,11 @@ ln -sf "$HOME/hyprland-dotfiles/pictures/$THEME-wallpaper.png" "$HOME/Pictures/W
 ln -sf "$HOME/hyprland-dotfiles/pictures/$THEME-profile.png" "$HOME/Pictures/Wallpapers/current-profile.png"
 
 # Reload Styles & Apps
+if [ -z "$WAYLAND_DISPLAY" ]; then
+    echo "Done (UI reload skipped since no Wayland session is active)."
+    exit 0
+fi
+
 echo "Reloading UI components..."
 # Determine if we should use uwsm for launching apps
 if command -v uwsm &> /dev/null; then

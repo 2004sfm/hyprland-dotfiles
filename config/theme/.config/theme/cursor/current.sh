@@ -1,1 +1,1 @@
-/home/famtiago/.config/theme/themes/dark/cursor.sh
+../themes/dark/cursor.sh

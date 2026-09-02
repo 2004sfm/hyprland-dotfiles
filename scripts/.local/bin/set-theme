@@ -36,14 +36,14 @@ echo "Applying theme: $THEME..."
 gsettings set org.gnome.desktop.interface color-scheme "$COLOR_SCHEME"
 gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
 
-# Update Symlinks (The Theme Hub)
-# All these components read from their "current" symlinks
-ln -sf "$THEME_DIR/colors.css" "$HOME/.config/theme/css/current.css"
-ln -sf "$THEME_DIR/colors.lua" "$HOME/.config/theme/hypr/current.lua"
-ln -sf "$THEME_DIR/hyprlock.conf" "$HOME/.config/theme/hypr/hyprlock-current.conf"
-ln -sf "$THEME_DIR/hyprtoolkit.conf" "$HOME/.config/theme/hypr/hyprtoolkit-current.conf"
-ln -sf "$THEME_DIR/kitty.conf" "$HOME/.config/theme/kitty/current.conf"
-ln -sf "$THEME_DIR/share-picker.css" "$HOME/.config/theme/share-picker/current.css"
+# 2. Update Symlinks (The Theme Hub)
+# All these components read from their "current" symlinks using relative paths for Git portability
+ln -sf "../themes/$THEME/colors.css" "$HOME/.config/theme/css/current.css"
+ln -sf "../themes/$THEME/colors.lua" "$HOME/.config/theme/hypr/current.lua"
+ln -sf "../themes/$THEME/hyprlock.conf" "$HOME/.config/theme/hypr/hyprlock-current.conf"
+ln -sf "../themes/$THEME/hyprtoolkit.conf" "$HOME/.config/theme/hypr/hyprtoolkit-current.conf"
+ln -sf "../themes/$THEME/kitty.conf" "$HOME/.config/theme/kitty/current.conf"
+ln -sf "../themes/$THEME/share-picker.css" "$HOME/.config/theme/share-picker/current.css"
 
 # GTK3/GTK4 Symlinks (if they exist for the theme)
 if [ -f "$THEME_DIR/gtk3.ini" ]; then
@@ -55,7 +55,7 @@ fi
 
 # Cursor Symlinks
 if [ -f "$THEME_DIR/cursor.sh" ]; then
-    ln -sf "$THEME_DIR/cursor.sh" "$HOME/.config/theme/cursor/current.sh"
+    ln -sf "../themes/$THEME/cursor.sh" "$HOME/.config/theme/cursor/current.sh"
 fi
 
 # Wallpapers and Profiles

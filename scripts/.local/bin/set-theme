@@ -36,7 +36,7 @@ echo "Applying theme: $THEME..."
 gsettings set org.gnome.desktop.interface color-scheme "$COLOR_SCHEME"
 gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
 
-# 2. Update Symlinks (The Theme Hub)
+# Update Symlinks (The Theme Hub)
 # All these components read from their "current" symlinks using relative paths for Git portability
 ln -sf "../themes/$THEME/colors.css" "$HOME/.config/theme/css/current.css"
 ln -sf "../themes/$THEME/colors.lua" "$HOME/.config/theme/hypr/current.lua"
@@ -62,7 +62,7 @@ fi
 ln -sf "$HOME/hyprland-dotfiles/pictures/$THEME-wallpaper.png" "$HOME/Pictures/Wallpapers/current-wallpaper.png"
 ln -sf "$HOME/hyprland-dotfiles/pictures/$THEME-profile.png" "$HOME/Pictures/Wallpapers/current-profile.png"
 
-# 3. Reload Styles & Apps
+# Reload Styles & Apps
 echo "Reloading UI components..."
 # Determine if we should use uwsm for launching apps
 if command -v uwsm &> /dev/null; then

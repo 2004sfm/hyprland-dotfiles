@@ -10,12 +10,11 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "==> Dotfiles directory: $DOTFILES_DIR"
 echo ""
 
-echo -n "==> Do you want to update Pacman mirrors using reflector? (y/N) "
-read -r update_mirrors
+read -r -p "==> Do you want to update Pacman mirrors using reflector? (y/N) " update_mirrors
 if [[ "$update_mirrors" =~ ^[Yy]$ ]]; then
     echo "==> Installing reflector and updating mirrors..."
     sudo pacman -S --needed --noconfirm reflector
-    sudo reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+    sudo reflector --latest 50 --number 20 --sort rate --save /etc/pacman.d/mirrorlist
     echo "==> Mirrors updated successfully."
 else
     echo "==> Skipping mirror update."

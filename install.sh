@@ -150,6 +150,13 @@ stow_pkg() {
 
 echo "==> Deploying dotfiles with stow..."
 
+echo "==> Configuring systemd logind for Hypridle..."
+if ! grep -q "^HandleLidSwitch=ignore" /etc/systemd/logind.conf; then
+    echo "    Delegating lid switch handling to Hypridle..."
+    sudo sed -i 's/^#HandleLidSwitch=.*/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
+    sudo systemctl restart systemd-logind || true
+fi
+
 # Backup ~/.config/hypr if it's a real directory (not a symlink from a previous stow)
 if [ -d "$HOME/.config/hypr" ] && [ ! -L "$HOME/.config/hypr" ]; then
     echo "    ~/.config/hypr exists as a real directory — renaming to hypr.bak"

@@ -139,6 +139,9 @@ echo ""
 
 # ─── Theme Hub symlinks ────────────────────────────────────────────────────────
 
+echo "==> Setting up UWSM desktop shortcuts..."
+~/.local/bin/wrap-uwsm
+
 echo "==> Setting up Theme Hub symlinks (default: dark)..."
 mkdir -p ~/.config/gtk-3.0 ~/.config/gtk-4.0
 

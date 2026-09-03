@@ -175,6 +175,9 @@ if [ -n "$ZSH_PATH" ] && [ "$SHELL" != "$ZSH_PATH" ]; then
     sudo chsh -s "$ZSH_PATH" "$USER" || chsh -s "$ZSH_PATH" || echo "==> Note: Could not change default shell automatically. You can run 'chsh -s $ZSH_PATH' manually."
 fi
 
+echo "==> Configuring Git global settings (linking dotfiles gitconfig)..."
+git config --global include.path "$DOTFILES_DIR/gitconfig"
+
 echo ""
 
 # ─── Helper ───────────────────────────────────────────────────────────────────

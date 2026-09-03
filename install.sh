@@ -141,6 +141,14 @@ FONTS=(
     "apple-fonts"
 )
 
+# Intel Graphics Drivers (OpenGL, Vulkan, VA-API hardware acceleration)
+INTEL_DRIVERS=(
+    "mesa"
+    "vulkan-intel"
+    "intel-media-driver"
+    "libva-intel-driver"
+)
+
 # Handle rust / rustup conflict:
 # 'rustup' conflicts with Arch's repo 'rust', 'cargo', and 'rustfmt'.
 # When --noconfirm is used, pacman defaults to [N] (don't remove), causing failure.
@@ -167,6 +175,14 @@ yay -S --needed --noconfirm "${FONTS[@]}"
 
 echo "==> Installing Apps..."
 yay -S --needed --noconfirm "${APPS[@]}"
+
+read -r -p "==> Do you want to install Intel Graphics Drivers? (Y/n) " install_intel
+if [[ -z "$install_intel" || "$install_intel" =~ ^[Yy]$ ]]; then
+    echo "==> Installing Intel Graphics Drivers..."
+    yay -S --needed --noconfirm "${INTEL_DRIVERS[@]}"
+else
+    echo "==> Skipping Intel Graphics Drivers."
+fi
 
 echo "==> Generating standard user directories (Downloads, Pictures, etc.)..."
 xdg-user-dirs-update

@@ -16,8 +16,8 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "==> Dotfiles directory: $DOTFILES_DIR"
 echo ""
 
-read -r -p "==> Do you want to update Pacman mirrors using reflector? (y/N) " update_mirrors
-if [[ "$update_mirrors" =~ ^[Yy]$ ]]; then
+read -r -p "==> Do you want to update Pacman mirrors using reflector? (Y/n) " update_mirrors
+if [[ -z "$update_mirrors" || "$update_mirrors" =~ ^[Yy]$ ]]; then
     echo "==> Installing reflector and updating mirrors..."
     sudo pacman -S --needed --noconfirm reflector
     sudo reflector --protocol https --latest 20 --number 10 --sort rate --save /etc/pacman.d/mirrorlist || echo "==> Warning: Reflector failed, proceeding with current mirrorlist."

@@ -269,6 +269,15 @@ mkdir -p ~/.config/gtk-3.0 ~/.config/gtk-4.0
 
 ~/.local/bin/set-theme dark
 
+# ─── Finish ───────────────────────────────────────────────────────────────────
+
 echo ""
-echo "Done! Default theme: dark."
-echo "Run toggle-theme to switch themes."
+echo "==> Installation complete!"
+echo "    Default theme configured: dark"
+if [ -z "$WAYLAND_DISPLAY" ]; then
+    echo "    Running in TTY/console: please reboot or start Hyprland."
+    echo "    (Once in Hyprland, switch themes with 'toggle-theme' or Super + T)"
+else
+    echo "    Switch themes anytime with 'toggle-theme' or Super + T."
+fi
+echo ""

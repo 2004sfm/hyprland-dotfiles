@@ -118,6 +118,8 @@ DOTFILES_CORE=(
     "wl-clip-persist"
     "brightnessctl"
     "playerctl"
+    "pipewire-pulse"
+    "pipewire-alsa"
     "wireplumber"
     "bluez"
     "bluez-utils"
@@ -146,7 +148,7 @@ INTEL_DRIVERS=(
     "mesa"
     "vulkan-intel"
     "intel-media-driver"
-    "libva-intel-driver"
+    "libva-utils"
 )
 
 # Handle rust / rustup conflict:

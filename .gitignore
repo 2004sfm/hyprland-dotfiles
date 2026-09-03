@@ -3,7 +3,7 @@
 **/.zcompdump*
 **/.zsh_history
 **/.zsh_sessions/
-**/.zsh_plugins.zsh
+**/*zsh_plugins.zsh*
 **/.zwc
 .vscode/
 engram

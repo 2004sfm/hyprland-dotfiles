@@ -59,8 +59,13 @@ if [ -f "$THEME_DIR/cursor.sh" ]; then
 fi
 
 # Wallpapers and Profiles
-ln -sf "$HOME/hyprland-dotfiles/pictures/$THEME-wallpaper.png" "$HOME/Pictures/Wallpapers/current-wallpaper.png"
-ln -sf "$HOME/hyprland-dotfiles/pictures/$THEME-profile.png" "$HOME/Pictures/Wallpapers/current-profile.png"
+WALLPAPER_SRC="$HOME/Pictures/Wallpapers/$THEME-wallpaper.png"
+[ ! -f "$WALLPAPER_SRC" ] && WALLPAPER_SRC="$HOME/hyprland-dotfiles/pictures/$THEME-wallpaper.png"
+PROFILE_SRC="$HOME/Pictures/Wallpapers/$THEME-profile.png"
+[ ! -f "$PROFILE_SRC" ] && PROFILE_SRC="$HOME/hyprland-dotfiles/pictures/$THEME-profile.png"
+
+ln -sf "$WALLPAPER_SRC" "$HOME/Pictures/Wallpapers/current-wallpaper.png"
+ln -sf "$PROFILE_SRC" "$HOME/Pictures/Wallpapers/current-profile.png"
 
 # Reload Styles & Apps
 if [ -z "$WAYLAND_DISPLAY" ]; then

@@ -26,9 +26,9 @@ hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(vesktop))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("~/.local/bin/toggle-theme"))
 
 -- Hyprshot (Clipboard Only)
-hl.bind("PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m output -m active --clipboard-only"))               -- Screenshot a monitor
-hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m window -m active --clipboard-only")) -- Screenshot a window
-hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m region --clipboard-only"))   -- Screenshot a region
+-- hl.bind("PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m output -m active --clipboard-only"))               -- Screenshot a monitor
+-- hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m window -m active --clipboard-only")) -- Screenshot a window
+-- hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd(EXEC_PREFIX .. "hyprshot -m region --clipboard-only"))   -- Screenshot a region
 
 
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())

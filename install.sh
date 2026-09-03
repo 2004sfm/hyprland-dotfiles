@@ -20,7 +20,7 @@ read -r -p "==> Do you want to update Pacman mirrors using reflector? (y/N) " up
 if [[ "$update_mirrors" =~ ^[Yy]$ ]]; then
     echo "==> Installing reflector and updating mirrors..."
     sudo pacman -S --needed --noconfirm reflector
-    sudo reflector --latest 50 --number 20 --sort rate --save /etc/pacman.d/mirrorlist || echo "==> Warning: Reflector failed, proceeding with current mirrorlist."
+    sudo reflector --protocol https --latest 20 --number 10 --sort rate --save /etc/pacman.d/mirrorlist || echo "==> Warning: Reflector failed, proceeding with current mirrorlist."
     echo "==> Mirrors updated successfully."
 else
     echo "==> Skipping mirror update."

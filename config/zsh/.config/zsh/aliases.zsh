@@ -6,4 +6,4 @@ alias docker-start='sudo systemctl start docker'
 alias docker-stop='sudo systemctl stop docker docker.socket'
 
 # Update mirror servers using reflector
-alias update-mirrors='sudo reflector --latest 50 --number 20 --sort rate --save /etc/pacman.d/mirrorlist'
+alias update-mirrors='sudo reflector --protocol https --latest 20 --number 10 --sort rate --save /etc/pacman.d/mirrorlist'

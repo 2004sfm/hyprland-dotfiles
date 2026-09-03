@@ -90,6 +90,7 @@ APPS=(
     "wofi"
     "htop"
     "tree"
+    "fastfetch"
     "github-cli"
 )
 

@@ -107,6 +107,7 @@ DOTFILES_CORE=(
     "swaync"
     "hyprpaper"
     "hypridle"
+    "hyprlock"
     "hyprlauncher"
     "hyprshot"
     "grim"

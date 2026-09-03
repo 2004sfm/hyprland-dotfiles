@@ -107,6 +107,7 @@ DOTFILES_CORE=(
     "hyprpaper"
     "hypridle"
     "hyprlauncher"
+    "hyprshot"
     "grim"
     "slurp"
     "wl-clipboard"
